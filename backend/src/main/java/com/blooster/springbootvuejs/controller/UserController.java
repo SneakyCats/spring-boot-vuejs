@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/users")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:8081")
 public class UserController {
 
     @Autowired
@@ -54,7 +54,7 @@ public class UserController {
     public ResponseEntity<List<User>> getAllUsers() {
 
         try {
-            List<User> users = new ArrayList<User>();
+            List<User> users = new ArrayList<>();
             userRepository.findAll().forEach(users::add);
             return new ResponseEntity<>(users, HttpStatus.OK);
         } catch (Exception e) {
